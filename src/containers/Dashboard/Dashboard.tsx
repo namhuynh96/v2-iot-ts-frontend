@@ -4,18 +4,29 @@ import AdminControll from "./AdminControll/AdminControll";
 import UserControll from "./UserControll/UserControll";
 import Request from "./Request/Request";
 import { IStoreState } from "../../store/reducers";
+import DemoDevices from "./DemoDevices/DemoDevices";
 
 const Dashboard = () => {
   const {
     isAdmin,
-    userData: { isAccepted }
+    userData: { isAccepted },
   } = useSelector((state: IStoreState) => state.user);
 
   let content;
   if (isAdmin) {
-    content = <AdminControll />;
+    content = (
+      <>
+        <DemoDevices />
+        <AdminControll />
+      </>
+    );
   } else if (isAccepted) {
-    content = <UserControll />;
+    content = (
+      <>
+        <DemoDevices />
+        <UserControll />
+      </>
+    );
   } else {
     content = <Request />;
   }
