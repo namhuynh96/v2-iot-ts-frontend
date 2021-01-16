@@ -4,7 +4,7 @@ import AdminControll from "./AdminControll/AdminControll";
 import UserControll from "./UserControll/UserControll";
 import Request from "./Request/Request";
 import { IStoreState } from "../../store/reducers";
-import DemoDevices from "./DemoDevices/DemoDevices";
+// import DemoDevices from "./DemoDevices/DemoDevices";
 
 const Dashboard = () => {
   const {
@@ -16,14 +16,14 @@ const Dashboard = () => {
   if (isAdmin) {
     content = (
       <>
-        <DemoDevices />
+        {/* <DemoDevices /> */}
         <AdminControll />
       </>
     );
   } else if (isAccepted) {
     content = (
       <>
-        <DemoDevices />
+        {/* <DemoDevices /> */}
         <UserControll />
       </>
     );
