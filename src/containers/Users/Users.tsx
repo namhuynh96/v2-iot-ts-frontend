@@ -8,7 +8,7 @@ import UserData from "./UserData/UserData";
 import { IStoreState } from "../../store/reducers";
 
 const Users = () => {
-  const [choosedUserId, setChoosedUserId] = useState();
+  const [choosedUserId, setChoosedUserId] = useState<string>("");
 
   const { allUsers } = useSelector((state: IStoreState) => state.user);
 
@@ -33,7 +33,7 @@ const Users = () => {
   };
 
   let userData;
-  const choosedUser = allUsers.find(user => choosedUserId === user._id);
+  const choosedUser = allUsers.find((user) => choosedUserId === user._id);
   if (choosedUser) {
     const { username, email, isRequesting, isAccepted } = choosedUser;
     userData = (
@@ -49,7 +49,7 @@ const Users = () => {
   }
 
   const userFilterHandler = useCallback(
-    email => {
+    (email) => {
       const query = email.length === 0 ? "" : `?email=${email}`;
       dispatch(actions.fetchAllUsers(query));
     },
