@@ -10,14 +10,19 @@ interface ToolbarProps {
   isAuth: boolean;
 }
 
-const Toolbar: React.FC<ToolbarProps> = props => {
+const Toolbar: React.FC<ToolbarProps> = (props) => {
   return (
     <header className={classes.Toolbar}>
       <DrawerToggle clicked={props.drawerToggleClicked} />
       <div className={classes.Logo}>
         <Logo />
       </div>
-      <div style={{color: 'white'}}>A project built by Nam Huynh</div>
+      <div style={{ color: "white" }}>
+        A project built by{" "}
+        <a className={classes.Author} href="https://nam-huynh.com" target="_blank" rel="noreferrer">
+          Nam Huynh
+        </a>
+      </div>
       <nav className={classes.DesktopOnly}>
         <NavigationItems isAuthenticated={props.isAuth} />
       </nav>
